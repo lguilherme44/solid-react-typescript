@@ -1,9 +1,13 @@
 module.exports = {
-  roots: ["<rootDir>/src"],
-  collectCoverageFrom: ["<rootDir>/src/**/*.{ts,tsx}"],
-  coverageDirectory: "coverage",
-  testEnvironment: "node",
+  roots: ['<rootDir>/src'],
+  coverageDirectory: 'coverage',
   transform: {
-    ".+\\.ts$": "ts-jest",
+    '.+\\.(ts|tsx)$': 'ts-jest',
   },
-};
+  moduleNameMapper: {
+    '@/tests/(.*)': '<rootDir>/tests/$1',
+    '@/(.*)': '<rootDir>/src/$1',
+    '\\.scss$': 'identity-obj-proxy',
+  },
+  testEnvironment: 'node',
+}
